@@ -12,17 +12,17 @@ hold off
 echo off
 
 filename = 'GC1_GrainSize.csv'
-datatable = readtable(filename);
-
-data = table2array(datatable);
-%turned it into an array and got rid of all non numerical values
+data = readtable(filename)
+%Ok it is all there. looks a little weird, I will be honest
 %% split data into vectors
 % these are just the size of the data grid, they don't hold all the data
 gs = data(1,2:end); 
-depth = data(2:end,1).';
-Z2 = data(2:end,2:end);
+d = data(2:end,1);
+Z = data(2:end,2:end);
 %clear data; commented out by NB. I don't trust it. why clear data?
 
+depth = d';
+Z2 = Z';
 %% call function colsub to deconvolute cumulative data
 
 Z = colsub(Z2);
@@ -46,20 +46,20 @@ clear Z2;
 %zstd = std(Z);   
 %all commented out by NB. Dont care about these numbers
 %% Plot it
-% NB- commented it all out bc I think it looks bad
-% figure(1) %Plot it narrow!
-% caxis([0 100])
-% contourf(X,Y,Z,20);
-% colormap(jet)
-% set(gca,'YDir','Reverse') 
-% set(gca, 'XScale', 'log')
-% set(gca,'TickDir','out') 
-% set(gca,'XMinorTick','on') 
-% set(gca,'YMinorTick','on')
-% set(gca,'PlotBoxAspectRatio', [0.2 1 1]) % Set axis aspect
-% xlabel('Grain-size')
-% ylabel('Depth')
-% colorbar
+
+figure(1) %Plot it narrow!
+caxis([0 100])
+contourf(X,Y,Z,20);
+colormap(jet)
+set(gca,'YDir','Reverse') 
+set(gca, 'XScale', 'log')
+set(gca,'TickDir','out') 
+set(gca,'XMinorTick','on') 
+set(gca,'YMinorTick','on')
+set(gca,'PlotBoxAspectRatio', [0.2 1 1]) % Set axis aspect
+xlabel('Grain-size')
+ylabel('Depth')
+colorbar
 
 figure(2) %Plot it wide!
 caxis([0 100])
@@ -71,7 +71,7 @@ caxis([0 100])
 % set(gca,'PlotBoxAspectRatio', [0.1 1 1])
 % subplot(2,2,2)
 contourf(X,Y,Z,20);
-%colormap(jet)
+colormap(jet)
 set(gca,'YDir','Reverse') 
 set(gca,'XScale', 'log')
 set(gca,'TickDir','out') 
