@@ -15,7 +15,7 @@ filename = 'GC1_GrainSize.csv'
 datatable = readtable(filename);
 
 data = table2array(datatable);
-%turned it into an array and got rid of all non numerical values
+%NB-turned it into an array and got rid of all non numerical values
 %% split data into vectors
 % these are just the size of the data grid, they don't hold all the data
 gs = data(1,2:end); 
@@ -63,13 +63,6 @@ clear Z2;
 
 figure(2) %Plot it wide!
 caxis([0 100])
-% subplot(2,2,1)
-% plot(xx,yi,'.k')
-% set(gca,'YDir','Reverse')
-% set(gca,'YMinorTick','on')
-% set(gca,'TickDir','out')
-% set(gca,'PlotBoxAspectRatio', [0.1 1 1])
-% subplot(2,2,2)
 contourf(X,Y,Z,20);
 %colormap(jet)
 set(gca,'YDir','Reverse') 
@@ -78,13 +71,14 @@ set(gca,'TickDir','out')
 set(gca,'XMinorTick','on') 
 set(gca,'YMinorTick','on')
 set(gca,'PlotBoxAspectRatio', [1 2 1]) % Set axis aspect
-%zlim([0 3.5])
 xlabel('Grain-size')
 ylabel('Depth')
 colorbar
 hold on
 %plot(xx,depth_i,'.y')
-set(gca,'YDir','Reverse')
+%NB added next two lines bc it was on Katrin's notes
+set(gca,'XDir','Reverse') 
+axis([1,400,23,37])
 hold off
 
 figure(3) %Plot it 3D!
