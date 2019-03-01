@@ -23,7 +23,7 @@ opts.VariableNames = ["Depth", "WAB18GC1", "WAB18GC2", "WAB18GC3"];
 opts.VariableTypes = ["double", "double", "double", "double"];
 
 % Import the data
-CoreDensitiesS1 = readtable("/Users/nhiasolari/Desktop/MATLAB/GEOS 350/Core Densities.xlsx", opts, "UseExcel", false);
+CoreDensitiesS1 = readtable("Core Densities.xlsx", opts, "UseExcel", false);
 
 
 %% Clear temporary variables
@@ -49,7 +49,7 @@ opts.VariableNames = ["Depth", "WAB18GC1", "WAB18GC2", "WAB18GC3"];
 opts.VariableTypes = ["double", "double", "double", "double"];
 
 % Import the data
-CoreDensities = readtable("/Users/nhiasolari/Desktop/MATLAB/GEOS 350/Core Densities.xlsx", opts, "UseExcel", false);
+CoreDensities = readtable("Core Densities.xlsx", opts, "UseExcel", false);
 
 
 %% Clear temporary variables
@@ -75,7 +75,7 @@ opts.VariableNames = ["Depthcm", "Volumecc", "WeightofCapandTubeg", "WetWeightwt
 opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
 
 % Import the data
-WAB18GC1 = readtable("/Users/nhiasolari/Desktop/MATLAB/GEOS 350/WAB18-GC1.xlsx", opts, "UseExcel", false);
+WAB18GC1 = readtable("WAB18-GC1.xlsx", opts, "UseExcel", false);
 
 
 %% Clear temporary variables
@@ -101,7 +101,7 @@ opts.VariableNames = ["Depthcm", "Volumecc", "WeightofCapandTubeg", "WetWeightwt
 opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
 
 % Import the data
-WAB18GC3 = readtable("/Users/nhiasolari/Desktop/MATLAB/GEOS 350/WAB18-GC3.xlsx", opts, "UseExcel", false);
+WAB18GC3 = readtable("WAB18-GC3.xlsx", opts, "UseExcel", false);
 
 
 %% Clear temporary variables
