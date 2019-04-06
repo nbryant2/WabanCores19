@@ -6,21 +6,25 @@
 % handle irregularily spaced data by using built-in MATLAB interpolation.
 % Created 2009-04-10 by Ola Fredin and Lena Rubensdotter; ola.fredin@ngu.no
 
-%Authors: Nolen Belle Bryant and Nhia Solari 
+%Authors: Nolen Belle Bryant 
 %Date: Feb 28th, 2019
 %% 
 
-hold off
-echo off
+%hold off
+%echo off
 
-filenameGC1 = 'GC1_GrainSize.csv'
+filenameGC1 = 'GC1_GrainSize_Re.csv'
 datatableGC1 = readtable(filenameGC1);
 
-filenameGC3 = 'GC3_GrainSize.csv'
+filenameGC1_E = 'GC1_GrainSize_Even.csv'
+datatableGC1_E = readtable(filenameGC1_E);
+
+filenameGC3 = 'GC3_GrainSize_Re.csv'
 datatableGC3 = readtable(filenameGC3);
 
-dataGC1 = table2array(datatableGC1);
-dataGC3 = table2array(datatableGC3(2:end,:));
+dataGC1 = table2array(datatableGC1(1:24,:));
+dataGC3 = table2array(datatableGC3(1:27,:));
+dataGC1_E = table2array(datatableGC1_E(1:20,:));
 %NB-turned it into an array and got rid of all non numerical values
 %% split data into vectors
 % these are just the size of the data grid, they don't hold all the data
@@ -76,6 +80,8 @@ set(gca,'XMinorTick','on')
 set(gca,'YMinorTick','on')
 set(gca,'PlotBoxAspectRatio', [1 2 1]) % Set axis aspect
 xlabel('Grain-size')
+xticks([0 10^1 10^2 10^3])
+xticklabels({'','','', ''})
 ylabel('Depth')
 colorbar
 hold on
@@ -115,6 +121,8 @@ set(gca,'XMinorTick','on')
 set(gca,'YMinorTick','on')
 set(gca,'PlotBoxAspectRatio', [1 2 1]) % Set axis aspect
 xlabel('Grain-size')
+xticks([0 10^1 10^2 10^3])
+%xticklabels({'','','', ''})
 ylabel('Depth')
 zlabel('% Volume')
 colorbar

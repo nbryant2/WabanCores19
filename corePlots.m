@@ -1,14 +1,15 @@
 %% Density figures
 %Author: Nolen Belle Bryant
 %Data: March 1, 2019
-%Generating density and magnetic suseptability plots for GC1 and GC3
+%Generating density and magnetic suseptability plots for GC1 and GC3n
 
 %% All things GC1
-% the evens
+% the  evens
 filename = 'GC1_DensityEven.csv';
 data = readtable(filename);
 
 wetDensityEven1 = table2array(data(:,1));
+
 wetDensityEven1(:,2) = table2array(data(:,5));
 
 dryDensityEven1 = table2array(data(:,1));
@@ -32,7 +33,7 @@ data = readtable(filename);
 magSus1 = table2array(data(1:48,:));
 
 %The mean and median
-filename = 'GC1_GrainAverages.csv';
+filename = 'GC1_GrainAverages_Re.csv';
 data = readtable(filename);
 
 meanMedian1 = table2array(data);
@@ -58,7 +59,7 @@ dryDensityOdd3 = table2array(data(:,1));
 dryDensityOdd3(:,2) = table2array(data(:,10));
 
 % Mean and Median Grain Sizes
-filename = 'GC3_GrainAverages.csv';
+filename = 'GC3_GrainAverages_Re.csv';
 data = readtable(filename);
 
 meanMedian3 = table2array(data);
@@ -232,3 +233,24 @@ legend('Mean','Median')
 ylabel('Depth (cm)')
 xlabel('Grain Size (\mum)')
 hold off
+
+%% Grain Size Example for the Poster
+
+filename = 'PosterGrainSize.csv';
+data = readtable(filename);
+
+size = table2array(data(:,2:end));
+%%
+figure (15)
+hold on
+plot(size(1,6:85), size(2,6:85)','Linewidth', 5);
+plot(size(1,6:85), size(3,6:85)','Linewidth', 5);
+set(gca, 'XDir','reverse')
+set(gca, 'XScale', 'log')
+legend('WAB18GC1 20cm','WAB18GC3 23cm')
+ylabel('Volume Percent [%]')
+xlabel('Grain Size (\mum)')
+xlim([0 1091])
+hold off
+
+
